@@ -107,7 +107,7 @@ def visualize_nn(nn):
 
 def evaluate_performance(nn, N):
     # Generate N random testing samples with float values
-    test_input_vectors = np.random.rand(N, 2) * 2  # Random floats between 0 and 2
+    test_input_vectors = np.random.rand(N, 2)  # Random floats between 0 and 2
     test_targets = np.array([(1 if x[0] > 0.5 else 0) ^ (1 if x[1] > 0.5 else 0) for x in test_input_vectors])
     
     # Predict using the trained neural network
@@ -121,7 +121,7 @@ def evaluate_performance(nn, N):
     # Calculate success rate
     success_rate = correct_predictions / N
     print(f"Success Rate: {success_rate * 100:.2f}%")
-    return success_rate
+    return success_rate, test_input_vectors, test_targets
 
 
 # Visualization function for training and testing data
